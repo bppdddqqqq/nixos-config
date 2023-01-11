@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# You can call this script like this:
+# brightnessControl up
+# brightnessControl down
+
+# Script inspired by these wonderful people:
+# https://github.com/dastorm/volume-notification-dunst/blob/master/volume.sh
+# https://gist.github.com/sebastiencs/5d7227f388d93374cebdf72e783fbd6a
+
+device_selected='intel_backlight'
+
+function send_notification {
+  brightness=$(brightnessctl --device="$device_selected" get)
+  # Make the bar with the special character ─ (it's not dash -)
+  # https://en.wikipedia.org/wiki/Box-drawing_character
+  bar=$(seq -s "─" 0 $((brightness / 2400 )) | sed 's/[0-9]//g')
+  brightness=$((brightness / 240 ))
+  #echo $bar
+  #echo $test
+  # Send the notification
+  dunstify -r 5555 -u normal "$bar  $brightness"
+}
+
+case $1 in
+  up)
+    # increase the backlight by 1%
+    brightnessctl --device="$device_selected" set +1%
+    send_notification
+    canberra-gtk-play -i audio-volume-change
+    ;;
+  down)
+    # decrease the backlight by 1%
+    brightnessctl --device="$device_selected" set 1%-
+    send_notification
+    canberra-gtk-play -i audio-volume-change
+    ;;
+  *)
+    brightness=$(brightnessctl --device="$device_selected" get)
+    brightness=$((brightness / 240 ))
+    icon=""
+    printf "%s" "$icon $brightness" "%"
+    ;;
+esac
