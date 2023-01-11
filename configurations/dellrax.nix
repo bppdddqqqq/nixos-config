@@ -1,0 +1,154 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+{
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ../hardware-configuration.nix
+  ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # intel gpu
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
+  networking.hostName = "nixos"; # Define your hostname.
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Open ports in the firewall.
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
+
+  #x11
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      plasma5.enable = true;
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    displayManager.sddm.enable = true;
+    layout = "us";
+    xkbVariant = "";
+
+    # dell 4K specific scaling that works(TM)
+    dpi = 180;
+
+    libinput.enable = true;
+  };
+
+  # power mgmt
+  #  services.power-profiles-daemon.enable = false;
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.powertop.enable = true;
+  #  services.tlp.enable = true;
+
+  # services
+  services.acpid.enable = true;
+  services.fwupd.enable = true;
+  services.vnstat.enable = true;
+
+  # clean logs older than 2d
+  services.cron.systemCronJobs = [
+    "0 20 * * * root journalctl --vacuum-time=2d"
+  ];
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.dellrax = {
+    isNormalUser = true;
+    description = "Lorax";
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [
+      firefox
+      thunderbird
+      xournalpp
+      calibre
+      vlc
+      libreoffice-qt
+
+      darktable
+      gimp
+      unstable.obsidian
+
+      # social
+      tdesktop
+      signal-desktop
+
+      # LaTeX
+      texstudio
+      texlive.combined.scheme-full
+
+      # video Edit
+      unstable.libsForQt5.kdenlive
+    ];
+  };
+
+  #  specialisation = {
+  #    battery-mode.configuration = {
+  #      system.nixos.tags = ["battery-mode"];
+  #      services.xserver = {
+  #        displayManager.defaultSession = "xfce";
+  #      };
+  #    };
+  #    default-mode.configuration = {
+  #      system.nixos.tags = ["default-mode"];
+  #      services.xserver = {
+  #        displayManager.defaultSession = "plasma";
+  #      };
+  #    };
+  #  };
+
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
+  users.extraGroups.vboxusers.members = ["dellrax"];
+
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "dellrax";
+
+  environment.variables = {
+    MOZ_USE_XINPUT2 = "1";
+    #GDK_SCALE = "2";
+    #GDK_DPI_SCALE = "0.5";
+    #_JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
+  };
+}
