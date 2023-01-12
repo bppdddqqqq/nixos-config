@@ -14,9 +14,17 @@
   '';
 in {
   services.xserver.videoDrivers = ["nvidia" "displaylink"];
-  hardware.opengl.enable = true;
-
   # zephyrus has a Nvidia GTX 1070
+  # intel gpu
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
   environment.systemPackages = [nvidia-offload];
   hardware.nvidia.prime = {
     offload.enable = true;
@@ -30,7 +38,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelParams = [ "nouveau.modeset=0" ];
+  boot.kernelParams = ["nouveau.modeset=0"];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
