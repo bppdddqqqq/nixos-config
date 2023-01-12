@@ -20,17 +20,17 @@ in {
   hardware.opengl = {
     enable = true;
   };
-  environment.systemPackages = [nvidia-offload];
+  #  environment.systemPackages = [nvidia-offload];
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-    modesetting.enable = true;
-    prime = {
-      offload.enable = true;
-
-      intelBusId = "PCI:0:2:0";
-
-      nvidiaBusId = "PCI:1:0:0";
-    };
+    #    modesetting.enable = true;
+    #    prime = {
+    #      offload.enable = true;
+    #
+    #      intelBusId = "PCI:0:2:0";
+    #
+    #      nvidiaBusId = "PCI:1:0:0";
+    #    };
   };
 
   # Use the systemd-boot EFI boot loader.
