@@ -11,6 +11,7 @@
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
     export __GLX_VENDOR_LIBRARY_NAME=nvidia
     export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
   '';
 in {
   services.xserver.videoDrivers = ["nvidia" "displaylink"];
@@ -18,27 +19,24 @@ in {
   # intel gpu
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
   };
-  environment.systemPackages = [nvidia-offload];
-  hardware.nvidia.prime = {
-    offload.enable = true;
-
-    intelBusId = "PCI:0:2:0";
-
-    nvidiaBusId = "PCI:1:0:0";
+  #  environment.systemPackages = [nvidia-offload];
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #    modesetting.enable = true;
+    #    prime = {
+    #      offload.enable = true;
+    #
+    #      intelBusId = "PCI:0:2:0";
+    #
+    #      nvidiaBusId = "PCI:1:0:0";
+    #    };
   };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelParams = ["nouveau.modeset=0"];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
