@@ -11,6 +11,7 @@
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
     export __GLX_VENDOR_LIBRARY_NAME=nvidia
     export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
   '';
 in {
   services.xserver.videoDrivers = ["nvidia" "displaylink"];
@@ -32,13 +33,14 @@ in {
     intelBusId = "PCI:0:2:0";
 
     nvidiaBusId = "PCI:1:0:0";
+
+    modesetting.enable = true;
   };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelParams = ["nouveau.modeset=0"];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
