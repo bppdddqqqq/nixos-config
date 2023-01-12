@@ -9,6 +9,25 @@
     ...
   } @ attrs: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+    nixosConfigurations.tron = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./configurations/tron.nix
+
+        ./overlays/unstable.nix
+
+        ./flake-installs/neovim-flake.nix
+
+        ./modules/globals.nix
+        ./modules/dnscrypt.nix
+        ./modules/gui.nix
+        ./modules/printing.nix
+        ./modules/steam.nix
+        ./modules/locale.nix
+        ./modules/software.nix
+      ];
+    };
     nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;

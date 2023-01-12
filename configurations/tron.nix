@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, nixpkgs-unstable, home-manager, vim-flake, ... }:
+{ config, pkgs, ... }:
 let
 
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
@@ -15,6 +15,7 @@ in {
   services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
   hardware.opengl.enable = true;
 
+  # zephyrus has a Nvidia GTX 1070
   environment.systemPackages = [ nvidia-offload ];
   hardware.nvidia.prime = {
     offload.enable = true;
@@ -35,11 +36,44 @@ in {
   networking.useDHCP = false;
   networking.interfaces.wlo1.useDHCP = true;
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.lorax = {
+    isNormalUser = true;
+    description = "Lorax";
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [
+      firefox
+      thunderbird
+      xournalpp
+      calibre
+      vlc
+      libreoffice-qt
+
+      darktable
+      gimp
+      unstable.obsidian
+
+      # social
+      tdesktop
+      signal-desktop
+
+      # LaTeX
+      texstudio
+      texlive.combined.scheme-full
+
+      # video Edit
+      unstable.libsForQt5.kdenlive
+    ];
+  };
+
+  # virtualbox
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
   users.extraGroups.vboxusers.members = [ "lorax" ];
 
-  imports = [ home-manager.nixosModule ../hardware-configuration.nix ];
+  imports = [ ../hardware-configuration.nix ];
 
   console = {
     font = "Lat2-Terminus16";
