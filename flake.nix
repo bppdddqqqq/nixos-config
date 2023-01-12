@@ -39,6 +39,7 @@
         ./flake-installs/neovim-flake.nix
 
         ./modules/globals.nix
+        ./modules/gui.nix
         ./modules/locale.nix
         ./modules/software.nix
         nixos-hardware.nixosModules.dell-xps-13-9370

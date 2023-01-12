@@ -1,10 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-let
-
+{
+  config,
+  pkgs,
+  ...
+}: let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
@@ -12,11 +13,11 @@ let
     export __VK_LAYER_NV_optimus=NVIDIA_only
   '';
 in {
-  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
+  services.xserver.videoDrivers = ["nvidia" "displaylink"];
   hardware.opengl.enable = true;
 
   # zephyrus has a Nvidia GTX 1070
-  environment.systemPackages = [ nvidia-offload ];
+  environment.systemPackages = [nvidia-offload];
   hardware.nvidia.prime = {
     offload.enable = true;
 
@@ -28,11 +29,13 @@ in {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
 
+  # Enable networking
+  networking.networkmanager.enable = true;
   networking.useDHCP = false;
   networking.interfaces.wlo1.useDHCP = true;
 
@@ -71,13 +74,12 @@ in {
   virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.x11 = true;
-  users.extraGroups.vboxusers.members = [ "lorax" ];
+  users.extraGroups.vboxusers.members = ["lorax"];
 
-  imports = [ ../hardware-configuration.nix ];
+  imports = [../hardware-configuration.nix];
 
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
 }
-
