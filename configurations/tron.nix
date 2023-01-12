@@ -30,6 +30,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
+  boot.kernelParams = [ "nouveau.modeset=0" ];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
