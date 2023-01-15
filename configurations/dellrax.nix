@@ -67,6 +67,7 @@
       calibre
       vlc
       libreoffice-qt
+      anki
 
       darktable
       gimp
