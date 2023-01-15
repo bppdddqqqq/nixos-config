@@ -68,6 +68,7 @@
       vlc
       libreoffice-qt
       anki
+      koreader
 
       darktable
       gimp
