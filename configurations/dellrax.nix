@@ -68,7 +68,7 @@
       vlc
       libreoffice-qt
       anki
-      koreader
+      libsForQt5.korganizer
 
       darktable
       gimp
