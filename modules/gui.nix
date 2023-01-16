@@ -18,6 +18,11 @@
     libinput.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    libsForQt5.kaccounts-providers
+    libsForQt5.kaccounts-integration
+  ];
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
