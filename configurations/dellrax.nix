@@ -68,6 +68,8 @@
       vlc
       libreoffice-qt
       anki
+      popcorntime
+      adl
 
       darktable
       gimp
