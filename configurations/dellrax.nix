@@ -69,6 +69,7 @@
       libreoffice-qt
       anki
       popcorntime
+      kodi
       adl
 
       darktable
