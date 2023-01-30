@@ -26,6 +26,7 @@
       libvdpau-va-gl
     ];
   };
+  services.xserver.wacom.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -71,6 +72,7 @@
       popcorntime
       kodi
       adl
+      freecad
 
       darktable
       gimp
