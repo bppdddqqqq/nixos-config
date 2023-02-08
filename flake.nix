@@ -4,8 +4,6 @@
     nixos-hardware,
     nixpkgs,
     nixos-generators,
-    neovim-flake,
-    nixpkgs-unstable,
     ...
   } @ attrs: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
@@ -39,6 +37,7 @@
         ./flake-installs/neovim-flake.nix
 
         ./modules/globals.nix
+        ./modules/vscode.nix
         ./modules/gui.nix
         ./modules/locale.nix
         ./modules/software.nix
@@ -61,5 +60,8 @@
   inputs.vim-flake = {
     url = "path:software-flake/vim";
     flake = true;
+  };
+  inputs.nix-vscode-extensions = {
+    url = "github:nix-community/nix-vscode-extensions?rev=83b9f149ffc2a6cdd44d8083050e7e245706ae2f";
   };
 }
