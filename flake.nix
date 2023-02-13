@@ -4,6 +4,7 @@
     nixos-hardware,
     nixpkgs,
     nixos-generators,
+    home-manager,
     ...
   } @ attrs: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
@@ -30,11 +31,31 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
+        home-manager.nixosModules.home-manager
+        {
+          users.users.dellrax.isNormalUser = true;
+          users.users.dellrax = {
+            extraGroups = ["networkmanager" "wheel"];
+          };
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.dellrax = {
+            config,
+            pkgs,
+            ...
+          }:
+            import ./home-manager {
+              inherit config;
+              inherit pkgs;
+              username = "dellrax";
+            };
+        }
         ./configurations/dellrax.nix
 
         ./overlays/unstable.nix
 
-        ./flake-installs/neovim-flake.nix
+        #./flake-installs/neovim-flake.nix
 
         ./modules/globals.nix
         ./modules/vscode.nix

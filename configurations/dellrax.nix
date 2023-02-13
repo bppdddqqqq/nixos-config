@@ -45,51 +45,16 @@
   };
 
   # power mgmt
-  #  services.power-profiles-daemon.enable = false;
   powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "powersave";
+  #powerManagement.cpuFreqGovernor = "powersave";
   powerManagement.powertop.enable = true;
-  #  services.tlp.enable = true;
+  services.tlp.enable = true;
+  services.power-profiles-daemon.enable = false;
 
   # services
   services.acpid.enable = true;
   services.fwupd.enable = true;
   services.vnstat.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dellrax = {
-    isNormalUser = true;
-    description = "Lorax";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-      thunderbird
-      xournalpp
-      calibre
-      vlc
-      libreoffice-qt
-      anki
-      popcorntime
-      kodi
-      adl
-      freecad
-
-      darktable
-      gimp
-      unstable.obsidian
-
-      # social
-      tdesktop
-      signal-desktop
-
-      # LaTeX
-      texstudio
-      texlive.combined.scheme-full
-
-      # video Edit
-      unstable.libsForQt5.kdenlive
-    ];
-  };
 
   #  specialisation = {
   #    battery-mode.configuration = {
