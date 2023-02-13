@@ -1,3 +1,0 @@
-[submodule "nix-nvim"]
-	path = nix-nvim
-	url = https://framagit.org/vegaelle/nix-nvim
