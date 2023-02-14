@@ -35,7 +35,7 @@
         {
           users.users.dellrax.isNormalUser = true;
           users.users.dellrax = {
-            extraGroups = ["networkmanager" "wheel"];
+            extraGroups = ["networkmanager" "wheel" "editors"];
           };
 
           home-manager.useGlobalPkgs = true;
@@ -43,11 +43,13 @@
           home-manager.users.dellrax = {
             config,
             pkgs,
+            lib,
             ...
           }:
             import ./home-manager {
               inherit config;
               inherit pkgs;
+              inherit lib;
               username = "dellrax";
             };
         }

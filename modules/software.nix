@@ -23,6 +23,7 @@
     unzip
     tmux
     zeal
+    neovim
 
     tor-browser-bundle-bin
 
@@ -40,5 +41,6 @@
     gcc
     raylib
     valgrind
+    musl
   ];
 }

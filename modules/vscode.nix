@@ -30,12 +30,18 @@ in {
         ms-vscode.vscode-typescript-next
         rbbit.typescript-hero
         stringham.move-ts
+	bbenoist.nix
+	pinage404.nix-extension-pack
+	jnoortheen.nix-ide
         gregorbiswanger.json2ts
+	mshr-h.veriloghdl
       ];
     })
     nodejs-18_x
     nodePackages."@angular/cli"
     yarn
     deno
+    verilog
+    gtkwave
   ];
 }
