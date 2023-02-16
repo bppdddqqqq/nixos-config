@@ -35,6 +35,11 @@ in {
 	jnoortheen.nix-ide
         gregorbiswanger.json2ts
 	mshr-h.veriloghdl
+	leafvmaple.verilog
+	gtylcara-gewinn.verilog
+#	ms-vscode.cpptools
+#	ms-vscode.cpptools-extension-pack
+	austin.code-gnu-global
       ];
     })
     nodejs-18_x

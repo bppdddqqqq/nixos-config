@@ -6,7 +6,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    zathura
     wget
     deluge
     xarchiver
@@ -39,6 +38,8 @@
     clang-tools_14
     lldb_14
     gcc
+    cmake
+    gnumake
     raylib
     valgrind
     musl
