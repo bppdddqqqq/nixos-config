@@ -35,7 +35,7 @@
         {
           users.users.dellrax.isNormalUser = true;
           users.users.dellrax = {
-            extraGroups = ["networkmanager" "wheel" "editors"];
+            extraGroups = ["lxd" "networkmanager" "wheel" "editors"];
           };
 
           home-manager.useGlobalPkgs = true;

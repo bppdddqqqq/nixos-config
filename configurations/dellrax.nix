@@ -27,6 +27,8 @@
     ];
   };
   services.xserver.wacom.enable = true;
+  virtualisation.lxc.enable = true;
+  virtualisation.lxd.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
 

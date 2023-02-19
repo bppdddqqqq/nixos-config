@@ -24,6 +24,10 @@
     zeal
     neovim
 
+    # python
+    python3Full
+    python310Packages.pip
+
     tor-browser-bundle-bin
 
     # wine
