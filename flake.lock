@@ -1035,6 +1035,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "security-box": "security-box",
         "vim-flake": "vim-flake"
       }
     },
@@ -1078,6 +1079,22 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
+        "type": "github"
+      }
+    },
+    "security-box": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675698878,
+        "narHash": "sha256-5vebEwgXs0Vz9kPhPToLM6N6qpx8s/CJWy4ZzNTb3ko=",
+        "owner": "fabaff",
+        "repo": "nix-security-box",
+        "rev": "5d0b9b0ac3606cb8305b91163742943c7f79a1b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fabaff",
+        "repo": "nix-security-box",
         "type": "github"
       }
     },

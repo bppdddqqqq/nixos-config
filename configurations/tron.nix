@@ -58,6 +58,7 @@ in {
       calibre
       vlc
       libreoffice-qt
+      hashcat
 
       darktable
       gimp

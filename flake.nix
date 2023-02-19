@@ -5,6 +5,7 @@
     nixpkgs,
     nixos-generators,
     home-manager,
+    security-box,
     ...
   } @ attrs: let
     username = "lorax";
@@ -27,6 +28,8 @@
         ./modules/steam.nix
         ./modules/locale.nix
         ./modules/software.nix
+
+        security-box/password.nix
       ];
     };
     nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem {
@@ -77,6 +80,10 @@
   inputs.home-manager = {
     url = "github:nix-community/home-manager/release-22.11";
     inputs.nixpkgs.follows = "nixpkgs";
+  };
+  inputs.security-box = {
+    url = "github:fabaff/nix-security-box";
+    flake = false;
   };
   inputs.nixos-generators = {
     url = "github:nix-community/nixos-generators";
