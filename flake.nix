@@ -37,7 +37,7 @@
         {
 	  users.users."${username}"= {
 	    isNormalUser = true;
-            extraGroups = ["lxd" "networkmanager" "wheel" "editors"];
+            extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
           };
 
           home-manager.useGlobalPkgs = true;

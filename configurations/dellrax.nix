@@ -51,7 +51,14 @@
   #powerManagement.cpuFreqGovernor = "powersave";
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
+  services.tlp.settings = {
+    CPU_SCALING_MIN_FREQ_ON_AC=800000;
+    CPU_SCALING_MIN_FREQ_ON_BAT=600000;
+    CPU_MIN_PERF_ON_AC=3;
+    CPU_MIN_PERF_ON_BAT=3;
+  };
   services.power-profiles-daemon.enable = false;
+  services.fancontrol.enable = true;
 
   # services
   services.acpid.enable = true;
@@ -78,11 +85,12 @@
   virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.x11 = true;
-  users.extraGroups.vboxusers.members = ["dellrax"];
+  users.extraGroups.vboxusers.members = ["lorax"];
+  virtualisation.docker.enable = true;
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "dellrax";
+  services.xserver.displayManager.autoLogin.user = "lorax";
 
   environment.variables = {
     MOZ_USE_XINPUT2 = "1";
