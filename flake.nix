@@ -6,7 +6,9 @@
     nixos-generators,
     home-manager,
     ...
-  } @ attrs: {
+  } @ attrs: let
+    username = "lorax";
+  in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     nixosConfigurations.tron = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -33,14 +35,14 @@
       modules = [
         home-manager.nixosModules.home-manager
         {
-          users.users.dellrax.isNormalUser = true;
-          users.users.dellrax = {
+	  users.users."${username}"= {
+	    isNormalUser = true;
             extraGroups = ["lxd" "networkmanager" "wheel" "editors"];
           };
 
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.dellrax = {
+          home-manager.users.${username} = {
             config,
             pkgs,
             lib,
@@ -50,7 +52,7 @@
               inherit config;
               inherit pkgs;
               inherit lib;
-              username = "dellrax";
+              inherit username;
             };
         }
         ./configurations/dellrax.nix
