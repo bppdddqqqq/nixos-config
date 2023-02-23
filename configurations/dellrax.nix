@@ -58,7 +58,7 @@
     CPU_MIN_PERF_ON_BAT=3;
   };
   services.power-profiles-daemon.enable = false;
-  services.fancontrol.enable = true;
+  hardware.fancontrol.enable = true;
 
   # services
   services.acpid.enable = true;
