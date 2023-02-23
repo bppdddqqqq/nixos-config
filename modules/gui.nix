@@ -7,11 +7,10 @@
   services.xserver = {
     enable = true;
     desktopManager = {
-      plasma5.enable = true;
+      gnome.enable = true;
       xterm.enable = false;
-      xfce.enable = true;
     };
-    displayManager.sddm.enable = true;
+    displayManager.gdm.enable = true;
     layout = "us";
     xkbVariant = "";
 
