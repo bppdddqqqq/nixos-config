@@ -37,8 +37,8 @@ in {
 	mshr-h.veriloghdl
 	leafvmaple.verilog
 	gtylcara-gewinn.verilog
-#	ms-vscode.cpptools
-	ms-vscode.cpptools-extension-pack
+	vscode-extensions.ms-vscode.cpptools
+#	ms-vscode.cpptools-extension-pack
 	austin.code-gnu-global
       ];
     })
