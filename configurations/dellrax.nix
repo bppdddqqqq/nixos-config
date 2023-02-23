@@ -5,7 +5,11 @@
   config,
   pkgs,
   ...
-}: {
+}:
+let
+  fanConfig = builtins.readFile ./dellrax.fan;
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ../hardware-configuration.nix
@@ -59,6 +63,7 @@
   };
   services.power-profiles-daemon.enable = false;
   hardware.fancontrol.enable = true;
+  hardware.fancontrol.config = fanConfig;
 
   # services
   services.acpid.enable = true;

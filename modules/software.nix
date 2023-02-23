@@ -14,6 +14,7 @@
     p7zip
     smartmontools
     unrar
+    lm_sensors
     libjxl
     ncdu_2
     frostwire-bin
