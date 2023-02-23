@@ -10,6 +10,9 @@
     deluge
     xarchiver
     nomacs
+    nvme-cli
+    p7zip
+    smartmontools
     unrar
     libjxl
     ncdu_2
@@ -23,6 +26,7 @@
     tmux
     zeal
     neovim
+    smartmontools
 
     # python
     python3Full
@@ -47,5 +51,6 @@
     raylib
     valgrind
     musl
+    boost.dev
   ];
 }
