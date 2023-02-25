@@ -25,6 +25,8 @@ in {
     adl
     freecad
     rstudio
+    hashcat
+    hashcat-utils
 
     darktable
     gimp

@@ -16,6 +16,28 @@
       modules = [
         ./configurations/tron.nix
 
+        home-manager.nixosModules.home-manager
+        {
+          users.users."${username}" = {
+            isNormalUser = true;
+            extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
+          };
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = {
+            config,
+            pkgs,
+            lib,
+            ...
+          }:
+            import ./home-manager {
+              inherit config;
+              inherit pkgs;
+              inherit lib;
+              inherit username;
+            };
+        }
         ./overlays/unstable.nix
 
         ./flake-installs/neovim-flake.nix
@@ -35,8 +57,8 @@
       modules = [
         home-manager.nixosModules.home-manager
         {
-	  users.users."${username}"= {
-	    isNormalUser = true;
+          users.users."${username}" = {
+            isNormalUser = true;
             extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
           };
 

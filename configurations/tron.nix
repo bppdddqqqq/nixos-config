@@ -58,38 +58,6 @@ in {
   networking.useDHCP = false;
   networking.interfaces.wlo1.useDHCP = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lorax = {
-    isNormalUser = true;
-    description = "Lorax";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-      thunderbird
-      xournalpp
-      calibre
-      vlc
-      libreoffice-qt
-      hashcat
-      hashcat-utils
-
-      darktable
-      gimp
-      unstable.obsidian
-
-      # social
-      tdesktop
-      signal-desktop
-
-      # LaTeX
-      texstudio
-      texlive.combined.scheme-full
-
-      # video Edit
-      unstable.libsForQt5.kdenlive
-    ];
-  };
-
   # virtualbox
   #virtualisation.virtualbox.host.enable = true;
   #virtualisation.virtualbox.host.enableExtensionPack = true;
