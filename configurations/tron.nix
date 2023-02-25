@@ -32,6 +32,18 @@ in {
     #      nvidiaBusId = "PCI:1:0:0";
     #    };
   };
+  environment.systemPackages = with pkgs; [
+    cudatoolkit
+    cudatoolkit.lib
+    gnumake
+    gcc
+    pciutils
+    file
+  ];
+  systemd.services.nvidia-control-devices = {
+    wantedBy = ["multi-user.target"];
+    serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -59,6 +71,7 @@ in {
       vlc
       libreoffice-qt
       hashcat
+      hashcat-utils
 
       darktable
       gimp
@@ -78,13 +91,13 @@ in {
   };
 
   # virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.x11 = true;
-  users.extraGroups.vboxusers.members = ["lorax"];
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.guest.enable = true;
+  #virtualisation.virtualbox.guest.x11 = true;
+  #users.extraGroups.vboxusers.members = ["lorax"];
 
-  imports = [../hardware-configuration.nix];
+  imports = [./tron-hw.nix];
 
   console = {
     font = "Lat2-Terminus16";

@@ -17,7 +17,7 @@
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
-    google-fonts
+    #    google-fonts
   ];
 
   # clean logs older than 2d
