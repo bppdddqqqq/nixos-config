@@ -21,9 +21,9 @@
   ];
 
   # clean logs older than 2d
-  services.cron.systemCronJobs = [
-    "0 20 * * * root journalctl --vacuum-time=2d"
-  ];
+#  services.cron.systemCronJobs = [
+#    "0 20 * * * root journalctl --vacuum-time=2d"
+#  ];
 
   # set state version
   system.stateVersion = "22.11";
