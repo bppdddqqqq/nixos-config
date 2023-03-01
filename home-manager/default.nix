@@ -19,6 +19,8 @@ in {
     calibre
     vlc
     libreoffice-qt
+    discord
+    betterdiscordctl
     anki
     popcorntime
     kodi
@@ -94,7 +96,7 @@ in {
       telescope-symbols-nvim
       # telescope-media-files  # doesn't support wayland yet
       nvim-colorizer-lua
-      unstable.vimPlugins.nvim-treesitter.withAllGrammars
+      #unstable.vimPlugins.nvim-treesitter.withAllGrammars
       nvim-lspconfig
       unstable.vimPlugins.lsp_extensions-nvim
       # completion-nvim
