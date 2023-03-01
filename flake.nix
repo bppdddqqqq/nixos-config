@@ -10,6 +10,46 @@
     username = "lorax";
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+    nixosConfigurations.geryones = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./configurations/geryones.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          users.users."${username}" = {
+            isNormalUser = true;
+            extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
+          };
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = {
+            config,
+            pkgs,
+            lib,
+            ...
+          }:
+            import ./home-manager {
+              inherit config;
+              inherit pkgs;
+              inherit lib;
+              inherit username;
+            };
+        }
+        ./overlays/unstable.nix
+
+        ./flake-installs/neovim-flake.nix
+
+        ./modules/globals.nix
+        ./modules/dnscrypt.nix
+        ./modules/gui.nix
+        ./modules/printing.nix
+        ./modules/locale.nix
+        ./modules/software.nix
+      ];
+    };
     nixosConfigurations.tron = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
