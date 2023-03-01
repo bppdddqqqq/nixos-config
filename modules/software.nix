@@ -10,6 +10,8 @@
     deluge
     xarchiver
     nomacs
+    yq-go
+    docker-compose
     nvme-cli
     p7zip
     smartmontools
