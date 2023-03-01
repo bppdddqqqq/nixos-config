@@ -44,6 +44,7 @@
 
         ./modules/globals.nix
         ./modules/dnscrypt.nix
+        ./modules/vscode.nix
         ./modules/gui.nix
         ./modules/printing.nix
         ./modules/locale.nix
