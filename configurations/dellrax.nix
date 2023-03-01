@@ -19,6 +19,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.crashDump.enable = true;
 
   # intel gpu
   hardware.opengl = {
@@ -26,8 +27,8 @@ in
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
+#      vaapiVdpau
+#      libvdpau-va-gl
     ];
   };
   services.xserver.wacom.enable = true;
@@ -62,8 +63,7 @@ in
     CPU_MIN_PERF_ON_BAT=3;
   };
   services.power-profiles-daemon.enable = false;
-  hardware.fancontrol.enable = true;
-  hardware.fancontrol.config = fanConfig;
+  services.thermald.enable = true;
 
   # services
   services.acpid.enable = true;
@@ -92,10 +92,6 @@ in
   virtualisation.virtualbox.guest.x11 = true;
   users.extraGroups.vboxusers.members = ["lorax"];
   virtualisation.docker.enable = true;
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "lorax";
 
   environment.variables = {
     MOZ_USE_XINPUT2 = "1";
