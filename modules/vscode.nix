@@ -42,9 +42,9 @@ in {
 	austin.code-gnu-global
       ];
     })
-    nodejs-18_x
-    nodePackages."@angular/cli"
-    yarn
+#    nodejs-18_x
+#    nodePackages."@angular/cli"
+#    yarn
     deno
     verilog
     gtkwave
