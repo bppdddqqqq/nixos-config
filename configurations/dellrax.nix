@@ -19,7 +19,18 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.crashDump.enable = true;
+#  boot.crashDump.enable = true;
+
+  boot.kernelParams = [
+    "pcie.aspm=force"
+    "intel_idle.max_cstate=1"
+    "i915.enable_fbc=1"
+    "i915.enable_rc6=7"
+    "i915.lvds_downclock=1"
+    "i915.enable_guc_loading=1"
+    "i915.enable_guc_submission=1"
+    "i915.enable_psr=0"
+  ];
 
   # intel gpu
   hardware.opengl = {
@@ -34,6 +45,9 @@ in
   services.xserver.wacom.enable = true;
   virtualisation.lxc.enable = true;
   virtualisation.lxd.enable = true;
+
+  services.pcscd.enable = true;
+  services.pcscd.plugins = [ pkgs.acsccid ];
 
   networking.hostName = "nixos"; # Define your hostname.
 
