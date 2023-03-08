@@ -15,6 +15,10 @@ in
     ./dellrax-hw.nix
   ];
 
+  networking = {
+    hostName = "dellrax"; # Define your hostname.
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

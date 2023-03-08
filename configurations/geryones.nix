@@ -10,12 +10,18 @@
   hardware.opengl = {
     enable = true;
   };
+
+  networking = {
+    hostName = "geryones"; # Define your hostname.
+  };
+
   environment.systemPackages = with pkgs; [
     gnumake
     gcc
     pciutils
     file
   ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

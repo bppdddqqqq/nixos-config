@@ -14,13 +14,20 @@
     exec "$@"
   '';
 in {
+  networking = {
+    hostName = "tron"; # Define your hostname.
+  };
+
   services.xserver.videoDrivers = ["nvidia" "displaylink"];
   # zephyrus has a Nvidia GTX 1070
   # intel gpu
   hardware.opengl = {
     enable = true;
   };
-  #  environment.systemPackages = [nvidia-offload];
+
+  # for enabling prime :)
+  # environment.systemPackages = [nvidia-offload];
+
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     #    modesetting.enable = true;
@@ -32,14 +39,14 @@ in {
     #      nvidiaBusId = "PCI:1:0:0";
     #    };
   };
+
   environment.systemPackages = with pkgs; [
     cudatoolkit
     cudatoolkit.lib
-    gnumake
-    gcc
     pciutils
     file
   ];
+
   systemd.services.nvidia-control-devices = {
     wantedBy = ["multi-user.target"];
     serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
