@@ -27,7 +27,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.useDHCP = false;
-  networking.interfaces.wlo1.useDHCP = true;
+  networking.wireless.enable = false;
 
   imports = [./geryones-hw.nix];
 
@@ -35,4 +35,11 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
+
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
+  users.extraGroups.vboxusers.members = ["lorax"];
+  virtualisation.docker.enable = true;
 }
