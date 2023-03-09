@@ -7,34 +7,37 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    deluge
-    xarchiver
     nomacs
-    yq-go
-    docker-compose
+    
+    # diagnostic tools
     nvme-cli
-    p7zip
     smartmontools
-    unrar
-    lm_sensors
-    libjxl
+    
     ncdu_2
+    smartmontools
+    lm_sensors
+    
+    # linux iso download tools
+    deluge
     frostwire-bin
     yt-dlp
-    appimage-run
-    tldr
-    git
+    
+    unrar
+    xarchiver
+    p7zip
     zip
+    appimage-run
     unzip
     tmux
-    zeal
-    neovim
-    smartmontools
+    
+    # code quality stuff for nix
+    nixpkgs-fmt
 
     # python
     python3Full
     python310Packages.pip
 
+    # tor
     tor-browser-bundle-bin
 
     # wine
@@ -44,16 +47,10 @@
     # winetricks (all versions)
     winetricks
 
-    # c development
-    clang_14
-    clang-tools_14
-    lldb_14
-    gcc
-    cmake
-    gnumake
-    raylib
-    valgrind
-    musl
-    boost.dev
+    # basic dev tools
+    zeal
+    git
+    tldr
+    yq-go
   ];
 }
