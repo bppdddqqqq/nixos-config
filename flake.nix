@@ -10,133 +10,48 @@
     username = "lorax";
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-    nixosConfigurations.geryones = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.geryones = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = attrs // {
+        inherit system;
+        inherit username;
+      };
       modules = [
+        ./presets/basic.nix
         ./configurations/geryones.nix
 
-        home-manager.nixosModules.home-manager
-        {
-          users.users."${username}" = {
-            isNormalUser = true;
-            extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
-          };
-
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = {
-            config,
-            pkgs,
-            lib,
-            ...
-          }:
-            import ./home-manager {
-              inherit config;
-              inherit pkgs;
-              inherit lib;
-              inherit username;
-            };
-        }
-        ./overlays/unstable.nix
-
-        ./flake-installs/neovim-flake.nix
-
-        ./modules/nixvim.nix
         ./modules/cpp.nix
         ./modules/docker.nix
-        ./modules/globals.nix
-        ./modules/dnscrypt.nix
-        ./modules/vscode.nix
-        ./modules/gui.nix
-        ./modules/printing.nix
-        ./modules/locale.nix
-        ./modules/software.nix
       ];
     };
-    nixosConfigurations.tron = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.tron = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = attrs // {
+        inherit system;
+        inherit username;
+      };
       modules = [
+        ./presets/basic.nix
         ./configurations/tron.nix
 
-        home-manager.nixosModules.home-manager
-        {
-          users.users."${username}" = {
-            isNormalUser = true;
-            extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
-          };
-
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = {
-            config,
-            pkgs,
-            lib,
-            ...
-          }:
-            import ./home-manager {
-              inherit config;
-              inherit pkgs;
-              inherit lib;
-              inherit username;
-            };
-        }
-        ./overlays/unstable.nix
-
-        ./flake-installs/neovim-flake.nix
-
-        ./modules/nixvim.nix
         ./modules/cpp.nix
         ./modules/docker.nix
-        ./modules/globals.nix
-        ./modules/dnscrypt.nix
-        ./modules/gui.nix
         ./modules/printing.nix
         ./modules/steam.nix
-        ./modules/locale.nix
-        ./modules/software.nix
       ];
     };
-    nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = attrs // {
+        inherit system;
+        inherit username;
+      };
       modules = [
-        home-manager.nixosModules.home-manager
-        {
-          users.users."${username}" = {
-            isNormalUser = true;
-            extraGroups = ["lxd" "docker" "networkmanager" "wheel" "editors"];
-          };
-
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = {
-            config,
-            pkgs,
-            lib,
-            ...
-          }:
-            import ./home-manager {
-              inherit config;
-              inherit pkgs;
-              inherit lib;
-              inherit username;
-            };
-        }
+        ./presets/basic.nix
         ./configurations/dellrax.nix
 
-        ./overlays/unstable.nix
-
-        #./flake-installs/neovim-flake.nix
-        ./modules/nixvim.nix
         ./modules/cpp.nix
         ./modules/docker.nix
-        ./modules/globals.nix
-        ./modules/vscode.nix
-        ./modules/gui.nix
-        ./modules/locale.nix
-        ./modules/software.nix
         nixos-hardware.nixosModules.dell-xps-13-9370
       ];
     };
