@@ -23,6 +23,8 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+# compiles linux with crashdump kernel, enable if things appear sus
 #  boot.crashDump.enable = true;
 
   boot.kernelParams = [
@@ -52,8 +54,6 @@ in
 
   services.pcscd.enable = true;
   services.pcscd.plugins = [ pkgs.acsccid ];
-
-  networking.hostName = "nixos"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -109,7 +109,6 @@ in
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.x11 = true;
   users.extraGroups.vboxusers.members = ["lorax"];
-  virtualisation.docker.enable = true;
 
   environment.variables = {
     MOZ_USE_XINPUT2 = "1";
