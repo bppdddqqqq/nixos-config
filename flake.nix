@@ -42,6 +42,9 @@
 
         ./flake-installs/neovim-flake.nix
 
+        ./modules/nixvim.nix
+        ./modules/cpp.nix
+        ./modules/docker.nix
         ./modules/globals.nix
         ./modules/dnscrypt.nix
         ./modules/vscode.nix
@@ -83,6 +86,9 @@
 
         ./flake-installs/neovim-flake.nix
 
+        ./modules/nixvim.nix
+        ./modules/cpp.nix
+        ./modules/docker.nix
         ./modules/globals.nix
         ./modules/dnscrypt.nix
         ./modules/gui.nix
@@ -123,7 +129,9 @@
         ./overlays/unstable.nix
 
         #./flake-installs/neovim-flake.nix
-
+        ./modules/nixvim.nix
+        ./modules/cpp.nix
+        ./modules/docker.nix
         ./modules/globals.nix
         ./modules/vscode.nix
         ./modules/gui.nix
@@ -137,6 +145,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
   inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+  inputs.nixvim.url = github:pta2002/nixvim;
   inputs.home-manager = {
     url = "github:nix-community/home-manager/release-22.11";
     inputs.nixpkgs.follows = "nixpkgs";
