@@ -1,20 +1,23 @@
-{
-  config,
-  pkgs,
-  lib,
-  username,
-  ...
-}: let
-  vim-plugins = import ./vim-plugins.nix {inherit pkgs lib;};
-  rstudio = with pkgs; rstudioWrapper.override{ packages = with rPackages; [ 
+{ config
+, pkgs
+, lib
+, username
+, ...
+}:
+let
+  vim-plugins = import ./vim-plugins.nix { inherit pkgs lib; };
+  rstudio = with pkgs; rstudioWrapper.override {
+    packages = with rPackages; [
   	ggplot2 
 	dplyr 
 	xts 
 	jpeg 
 	corrplot
 	ggfortify
-  ]; };
-in {
+    ];
+  };
+in
+{
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = username;
