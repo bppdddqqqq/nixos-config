@@ -117,81 +117,81 @@ in {
     userEmail = "xparak1@fi.muni.cz";
   };
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    plugins = with pkgs;
-    with vimPlugins; [
-      csv-vim
-      vim-surround # fix config
-      vim-repeat
-      # vim-speeddating  # makes statusline buggy??
-      vim-commentary
-      vim-unimpaired
-      vim-sleuth # adjusts shiftwidth and expandtab based on the current file
-      vim-startify
-      vim-multiple-cursors
-      gundo-vim
-      vim-easy-align
-      vim-table-mode
-      editorconfig-vim
-      vim-markdown
-      ansible-vim
-      vim-nix
-      robotframework-vim
-      # vimspector
-      vim-plugins.vim-bepoptimist
-      vim-plugins.nvim-base16 # the one packaged in nixpkgs is different
-      popup-nvim
-      plenary-nvim
-      telescope-nvim
-      telescope-symbols-nvim
-      # telescope-media-files  # doesn't support wayland yet
-      nvim-colorizer-lua
-      #unstable.vimPlugins.nvim-treesitter.withAllGrammars
-      nvim-lspconfig
-      unstable.vimPlugins.lsp_extensions-nvim
-      # completion-nvim
-      # cmp-nvim-lsp
-      nvim-cmp
-      lspkind-nvim
-      gitsigns-nvim
-      neogit
-      diffview-nvim
-      unstable.vimPlugins.bufferline-nvim
-      nvim-autopairs
-      unstable.vimPlugins.galaxyline-nvim
-      vim-closetag
-      friendly-snippets
-      vim-vsnip
-      nvim-tree-lua
-      nvim-web-devicons
-      vim-devicons
-      # vim-auto-save  # ?
-      vim-plugins.neoscroll-nvim
-      vim-plugins.zenmode-nvim
-      minimap-vim
-      vim-plugins.indent-blankline-nvim # using my own derivation because the nixpkgs still uses the master branch
-      vim-easymotion
-      quick-scope
-      matchit-zip
-      targets-vim
-      neoformat
-      vim-numbertoggle
-      # vim-markdown-composer
-      vimwiki
-      pkgs.vimwiki-markdown
-      vim-python-pep8-indent
-      lsp_signature-nvim
-      rust-tools-nvim
-      vim-plugins.keymap-layer-nvim
-      vim-plugins.hydra-nvim
-    ];
+  # programs.neovim = {
+  #   enable = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  #   vimdiffAlias = true;
+  #   plugins = with pkgs;
+  #   with vimPlugins; [
+  #     csv-vim
+  #     vim-surround # fix config
+  #     vim-repeat
+  #     # vim-speeddating  # makes statusline buggy??
+  #     vim-commentary
+  #     vim-unimpaired
+  #     vim-sleuth # adjusts shiftwidth and expandtab based on the current file
+  #     vim-startify
+  #     vim-multiple-cursors
+  #     gundo-vim
+  #     vim-easy-align
+  #     vim-table-mode
+  #     editorconfig-vim
+  #     vim-markdown
+  #     ansible-vim
+  #     vim-nix
+  #     robotframework-vim
+  #     # vimspector
+  #     vim-plugins.vim-bepoptimist
+  #     vim-plugins.nvim-base16 # the one packaged in nixpkgs is different
+  #     popup-nvim
+  #     plenary-nvim
+  #     telescope-nvim
+  #     telescope-symbols-nvim
+  #     # telescope-media-files  # doesn't support wayland yet
+  #     nvim-colorizer-lua
+  #     #unstable.vimPlugins.nvim-treesitter.withAllGrammars
+  #     nvim-lspconfig
+  #     unstable.vimPlugins.lsp_extensions-nvim
+  #     # completion-nvim
+  #     # cmp-nvim-lsp
+  #     nvim-cmp
+  #     lspkind-nvim
+  #     gitsigns-nvim
+  #     neogit
+  #     diffview-nvim
+  #     unstable.vimPlugins.bufferline-nvim
+  #     nvim-autopairs
+  #     unstable.vimPlugins.galaxyline-nvim
+  #     vim-closetag
+  #     friendly-snippets
+  #     vim-vsnip
+  #     nvim-tree-lua
+  #     nvim-web-devicons
+  #     vim-devicons
+  #     # vim-auto-save  # ?
+  #     vim-plugins.neoscroll-nvim
+  #     vim-plugins.zenmode-nvim
+  #     minimap-vim
+  #     vim-plugins.indent-blankline-nvim # using my own derivation because the nixpkgs still uses the master branch
+  #     vim-easymotion
+  #     quick-scope
+  #     matchit-zip
+  #     targets-vim
+  #     neoformat
+  #     vim-numbertoggle
+  #     # vim-markdown-composer
+  #     vimwiki
+  #     pkgs.vimwiki-markdown
+  #     vim-python-pep8-indent
+  #     lsp_signature-nvim
+  #     rust-tools-nvim
+  #     vim-plugins.keymap-layer-nvim
+  #     vim-plugins.hydra-nvim
+  #   ];
 
-    extraConfig = "lua << EOF\n" + builtins.readFile ./init.lua + "\nEOF";
-  };
+  #   extraConfig = "lua << EOF\n" + builtins.readFile ./init.lua + "\nEOF";
+  # };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
