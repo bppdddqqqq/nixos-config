@@ -74,6 +74,8 @@ in {
     enable = true;
     package = pkgs.unstable.vscodium;
     extensions = with pkgs; with vscode-marketplace; [
+      serayuzgur.crates
+      bungcip.better-toml
       ms-python.python
       rubymaniac.vscode-direnv
       denoland.vscode-deno
@@ -96,6 +98,7 @@ in {
       ms-vscode.vscode-typescript-next
       rbbit.typescript-hero
       stringham.move-ts
+      golang.go
       bbenoist.nix
       pinage404.nix-extension-pack
       jnoortheen.nix-ide
@@ -104,9 +107,10 @@ in {
       leafvmaple.verilog
       gtylcara-gewinn.verilog
       vscode-extensions.ms-vscode.cpptools
+      eamodio.gitlens
 #     ms-vscode.cpptools-extension-pack
       austin.code-gnu-global
-    ];
+    ] ++ [ unstable.vscode-extensions.matklad.rust-analyzer ];
   };
 
   programs.direnv.enable = true;
