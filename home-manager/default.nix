@@ -8,12 +8,12 @@ let
   vim-plugins = import ./vim-plugins.nix { inherit pkgs lib; };
   rstudio = with pkgs; rstudioWrapper.override {
     packages = with rPackages; [
-  	ggplot2 
-	dplyr 
-	xts 
-	jpeg 
-	corrplot
-	ggfortify
+      ggplot2
+      dplyr
+      xts
+      jpeg
+      corrplot
+      ggfortify
     ];
   };
 in
@@ -40,6 +40,14 @@ in
     rstudio
     hashcat
     hashcat-utils
+    google-fonts
+
+    zeal
+
+    # linux iso download tools
+    deluge
+    frostwire-bin
+    yt-dlp
 
     deno
     verilog
@@ -102,13 +110,14 @@ in
       gtylcara-gewinn.verilog
       vscode-extensions.ms-vscode.cpptools
       eamodio.gitlens
-#     ms-vscode.cpptools-extension-pack
+      #     ms-vscode.cpptools-extension-pack
       austin.code-gnu-global
     ] ++ [ unstable.vscode-extensions.matklad.rust-analyzer ];
   };
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
+  
 
   programs.git = {
     userName = "Adam Parak";

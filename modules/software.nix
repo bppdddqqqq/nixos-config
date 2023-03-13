@@ -17,11 +17,6 @@
     smartmontools
     lm_sensors
     
-    # linux iso download tools
-    deluge
-    frostwire-bin
-    yt-dlp
-    
     unrar
     xarchiver
     p7zip
@@ -48,7 +43,6 @@
     winetricks
 
     # basic dev tools
-    zeal
     git
     tldr
     yq-go
