@@ -56,24 +56,36 @@
       ];
     };
   };
-  inputs.neovim-flake.url = "github:jordanisaacs/neovim-flake";
+
+  inputs.flake-compat = {
+    url = "github:edolstra/flake-compat";
+    flake = false;
+  };
+  inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
   inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-  inputs.nixvim.url = github:pta2002/nixvim;
+  inputs.nixlib.url = "github:nix-community/nixpkgs.lib";
+
+  inputs.nixvim= {
+    url = "github:pta2002/nixvim";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.utils.follows = "flake-utils";
+  };
+  
   inputs.home-manager = {
     url = "github:nix-community/home-manager/release-22.11";
     inputs.nixpkgs.follows = "nixpkgs";
+    inputs.utils.follows = "flake-utils";
   };
   inputs.nixos-generators = {
     url = "github:nix-community/nixos-generators";
     inputs.nixpkgs.follows = "nixpkgs";
-  };
-  inputs.vim-flake = {
-    url = "path:software-flake/vim";
-    flake = true;
+    inputs.nixlib.follows = "nixlib";
   };
   inputs.nix-vscode-extensions = {
-    url = "github:nix-community/nix-vscode-extensions?rev=83b9f149ffc2a6cdd44d8083050e7e245706ae2f";
+    url = "github:nix-community/nix-vscode-extensions";
+    inputs.flake-compat.follows = "flake-compat";
+    inputs.flake-utils.follows = "flake-utils";
   };
 }
