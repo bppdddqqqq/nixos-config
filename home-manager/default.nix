@@ -44,6 +44,7 @@ in {
 
     darktable
     gimp
+    inkscape
     unstable.obsidian
 
     # social
@@ -57,17 +58,7 @@ in {
     # video Edit
     unstable.libsForQt5.kdenlive
 
-    unstable.nodePackages.pyright
-    unstable.tree-sitter
-    unstable.code-minimap
-    luaPackages.lua-lsp
-    rnix-lsp
-    nodePackages.vim-language-server
-    nodePackages.yaml-language-server
-    nodePackages.bash-language-server
-    nodePackages.vscode-json-languageserver-bin
-    nodePackages.vscode-html-languageserver-bin
-    nodePackages.vscode-css-languageserver-bin
+    unstable.rust-analyzer
   ];
 
   programs.vscode = {
