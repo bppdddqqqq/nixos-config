@@ -14,6 +14,17 @@ let
       jpeg
       corrplot
       ggfortify
+      base64enc
+      evaluate
+      highr
+      htmltools
+      jsonlite
+      knitr
+      markdown
+      mime
+      rmarkdown
+      xfun
+      yaml
     ];
   };
 in
