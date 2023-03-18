@@ -49,6 +49,7 @@ in
     adl
     freecad
     rstudio
+    pandoc
     hashcat
     hashcat-utils
     google-fonts
