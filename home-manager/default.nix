@@ -79,6 +79,7 @@ in
     texlive.combined.scheme-full
 
     # video Edit
+    mediainfo
     unstable.libsForQt5.kdenlive
 
     unstable.rust-analyzer
