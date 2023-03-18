@@ -9,6 +9,7 @@
     clang-tools_14
     lldb_14
     gcc
+    gdb
     cmake
     gnumake
     raylib
