@@ -70,6 +70,9 @@ in
     inkscape
     unstable.obsidian
 
+    # texstudio
+    texstudio
+
     # social
     tdesktop
     signal-desktop

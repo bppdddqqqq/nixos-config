@@ -10,7 +10,6 @@
     deno
     verilog
     # LaTeX
-    texstudio
     texlive.combined.scheme-full
 
     # video Edit
