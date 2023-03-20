@@ -109,7 +109,7 @@ in
       wix.vscode-import-cost
       burkeholland.simple-react-snippets
       stylelint.vscode-stylelint
-      ms-vscode.vscode-typescript-next
+      markusfalk.typescript-development-extension-pack
       rbbit.typescript-hero
       stringham.move-ts
       golang.go

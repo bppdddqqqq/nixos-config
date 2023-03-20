@@ -81,10 +81,30 @@
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   inputs.nixlib.url = "github:nix-community/nixpkgs.lib";
 
-  inputs.nixvim= {
-    url = "github:pta2002/nixvim";
+  inputs.precommit = {
+    url = "github:cachix/pre-commit-hooks.nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs-stable.follows = "nixpkgs";
+    inputs.flake-compat.follows = "flake-compat";
+    inputs.flake-utils.follows = "flake-utils";
+  };
+  inputs.poetry2nix = {
+    url = "github:nix-community/poetry2nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.flake-utils.follows = "flake-utils";
+  };
+  inputs.beautysh = {
+    url = "github:lovesegfault/beautysh";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.utils.follows = "flake-utils";
+    inputs.poetry2nix.follows = "poetry2nix";
+  };
+  inputs.nixvim = {
+    url = "github:pta2002/nixvim";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.beautysh.follows = "beautysh";
+    inputs.flake-utils.follows = "flake-utils";
+    inputs.pre-commit-hooks.follows = "precommit";
   };
   
   inputs.home-manager = {
@@ -101,5 +121,6 @@
     url = "github:nix-community/nix-vscode-extensions";
     inputs.flake-compat.follows = "flake-compat";
     inputs.flake-utils.follows = "flake-utils";
+    inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 }
