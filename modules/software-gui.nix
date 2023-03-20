@@ -6,6 +6,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #nomacs image viewer
     nomacs
     
     # tor
@@ -17,5 +18,11 @@
 
     # winetricks (all versions)
     winetricks
+
+    #appimage
+    appimage-run
+
+    #xarchiver
+    xarchiver
   ];
 }

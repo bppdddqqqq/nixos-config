@@ -15,10 +15,8 @@
     lm_sensors
     
     unrar
-    xarchiver
     p7zip
     zip
-    appimage-run
     unzip
     tmux
     
