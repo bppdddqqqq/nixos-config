@@ -106,7 +106,7 @@ in
       dsznajder.es7-react-js-snippets
       planbcoding.vscode-react-refactor
       esbenp.prettier-vscode
-      arrterian.nix-env-selector
+      # arrterian.nix-env-selector
       wix.vscode-import-cost
       burkeholland.simple-react-snippets
       stylelint.vscode-stylelint
