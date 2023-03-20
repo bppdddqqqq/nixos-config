@@ -24,7 +24,7 @@
     nixpkgs-fmt
 
     # python
-    python3Full
+    python3
     python310Packages.pip
 
     # basic dev tools

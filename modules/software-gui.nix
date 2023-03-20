@@ -24,5 +24,8 @@
 
     #xarchiver
     xarchiver
+
+    #python3Full
+    python3Full
   ];
 }
