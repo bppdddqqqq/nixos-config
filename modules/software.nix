@@ -6,9 +6,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    nomacs
-    
     # diagnostic tools
     nvme-cli
     smartmontools
@@ -32,18 +29,9 @@
     python3Full
     python310Packages.pip
 
-    # tor
-    tor-browser-bundle-bin
-
-    # wine
-    # wine-staging (version with experimental features)
-    wineWowPackages.staging
-
-    # winetricks (all versions)
-    winetricks
-
     # basic dev tools
     git
+    wget
     tldr
     yq-go
   ];
