@@ -24,7 +24,7 @@
         , lib
         , ...
         }:
-        import ../home-manager/basic.nix {
+        import ../home-manager/server.nix {
           inherit config;
           inherit pkgs;
           inherit lib;

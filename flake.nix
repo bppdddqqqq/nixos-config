@@ -31,7 +31,7 @@
         inherit username;
       };
       modules = [
-        ./presets/basic.nix
+        ./presets/gui.nix
         ./configurations/geryones.nix
 
         ./modules/cpp.nix
@@ -45,7 +45,7 @@
         inherit username;
       };
       modules = [
-        ./presets/basic.nix
+        ./presets/gui.nix
         ./configurations/tron.nix
 
         ./modules/cpp.nix
@@ -61,7 +61,7 @@
         inherit username;
       };
       modules = [
-        ./presets/basic.nix
+        ./presets/gui.nix
         ./configurations/dellrax.nix
 
         ./modules/cpp.nix
