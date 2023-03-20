@@ -1,5 +1,29 @@
-{ config, lib, home-manager, username, ... }@attrs:
+{ config, pkgs, lib, home-manager, username, ... }@attrs:
 {
+  
+  environment.pathsToLink = [ "/libexec" ];
+  environment.systemPackages = with pkgs; [
+    bashmount
+  ];
+  services.xserver = {
+    autorun = false;
+    layout = "us";
+    enable = true;
+    desktopManager.xterm.enable = false;
+    displayManager.lightdm.enable = true;
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        i3blocks
+      ];
+    };
+  };
+
+
   imports = [
     ../modules/dnscrypt.nix
     ../modules/globals.nix
