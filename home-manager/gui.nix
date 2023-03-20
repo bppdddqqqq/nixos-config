@@ -3,9 +3,8 @@
 , lib
 , username
 , ...
-}:
+}@attrs:
 let
-  vim-plugins = import ./vim-plugins.nix { inherit pkgs lib; };
   rstudio = with pkgs; rstudioWrapper.override {
     packages = with rPackages; [
       ggplot2
@@ -33,6 +32,9 @@ in
   # paths it should manage.
   home.username = username;
   home.homeDirectory = "/home/${username}";
+  imports = [
+    ./common.nix
+  ];
 
   home.packages = with pkgs; [
     firefox
@@ -61,8 +63,6 @@ in
     frostwire-bin
     yt-dlp
 
-    deno
-    verilog
     gtkwave
 
     darktable
@@ -74,15 +74,8 @@ in
     tdesktop
     signal-desktop
 
-    # LaTeX
-    texstudio
-    texlive.combined.scheme-full
-
     # video Edit
-    mediainfo
     unstable.libsForQt5.kdenlive
-
-    unstable.rust-analyzer
   ];
 
   programs.vscode = {
@@ -128,24 +121,6 @@ in
     ] ++ [ unstable.vscode-extensions.matklad.rust-analyzer ];
   };
 
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  
-
-  programs.git = {
-    userName = "Adam Parak";
-    userEmail = "xparak1@fi.muni.cz";
-  };
-
-  gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
-  gtk.iconTheme.name = "Adwaita";
-
-  
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.

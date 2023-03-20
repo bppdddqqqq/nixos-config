@@ -3,11 +3,9 @@
   imports = [
     ../modules/dnscrypt.nix
     ../modules/globals.nix
-    ../modules/gui.nix
     ../modules/locale.nix
     ../modules/nixvim.nix
     ../modules/software.nix
-    ../modules/vscode.nix
 
     ../overlays/unstable.nix
 
@@ -26,7 +24,7 @@
         , lib
         , ...
         }:
-        import ../home-manager/gui.nix {
+        import ../home-manager/basic.nix {
           inherit config;
           inherit pkgs;
           inherit lib;
