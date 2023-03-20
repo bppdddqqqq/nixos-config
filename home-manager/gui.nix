@@ -131,4 +131,8 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  #gtk stuff
+  gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
+  gtk.iconTheme.name = "Adwaita";
 }

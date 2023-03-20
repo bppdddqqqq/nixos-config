@@ -23,7 +23,4 @@
     userName = "Adam Parak";
     userEmail = "xparak1@fi.muni.cz";
   };
-
-  gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
-  gtk.iconTheme.name = "Adwaita";
 }
