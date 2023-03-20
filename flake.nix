@@ -10,6 +10,20 @@
     username = "lorax";
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+    nixosConfigurations.amnesix = nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      specialArgs = attrs // {
+        inherit system;
+        inherit username;
+      };
+      modules = [
+        ./presets/server.nix
+        ./configurations/amnesix.nix
+
+        ./modules/cpp.nix
+        ./modules/docker.nix
+      ];
+    };
     nixosConfigurations.geryones = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = attrs // {
