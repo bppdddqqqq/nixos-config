@@ -57,6 +57,7 @@ in
     google-fonts
 
     zeal
+    postman
 
     # linux iso download tools
     deluge
