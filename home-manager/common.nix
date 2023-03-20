@@ -9,8 +9,6 @@
   
     deno
     verilog
-    # LaTeX
-    texlive.combined.scheme-full
 
     # video Edit
     mediainfo

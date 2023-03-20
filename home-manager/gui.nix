@@ -73,6 +73,9 @@ in
     # texstudio
     texstudio
 
+    # LaTeX
+    texlive.combined.scheme-full
+
     # social
     tdesktop
     signal-desktop
