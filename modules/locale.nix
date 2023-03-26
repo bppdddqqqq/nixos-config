@@ -16,4 +16,11 @@
     LC_TELEPHONE = "cs_CZ.UTF-8";
     LC_TIME = "cs_CZ.UTF-8";
   };
+
+   i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [ 
+      typing-booster
+     ];
+  };
 }
