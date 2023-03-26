@@ -44,8 +44,8 @@ in
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
-#      vaapiVdpau
-#      libvdpau-va-gl
+      vaapiVdpau
+      libvdpau-va-gl
     ];
   };
   services.xserver.wacom.enable = true;
