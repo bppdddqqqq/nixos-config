@@ -45,6 +45,8 @@ in {
     cudatoolkit.lib
     pciutils
     file
+    vulkan-tools
+    lutris
   ];
 
   systemd.services.nvidia-control-devices = {
