@@ -8,8 +8,8 @@
     ../modules/nixvim.nix
     ../modules/software.nix
     ../modules/software-gui.nix
-    ../modules/vscode.nix
 
+    ../overlays/vscode.nix
     ../overlays/unstable.nix
 
     home-manager.nixosModules.home-manager
