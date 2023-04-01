@@ -32,5 +32,9 @@
     wget
     tldr
     yq-go
+
+    mediainfo
+
+    deno
   ];
 }

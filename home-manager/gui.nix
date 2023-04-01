@@ -64,8 +64,14 @@ in
     frostwire-bin
     yt-dlp
 
+    # verilog shenanigans
     gtkwave
+    verilog
 
+    # shenanigans
+    the-powder-toy
+
+    # editors
     darktable
     gimp
     inkscape
