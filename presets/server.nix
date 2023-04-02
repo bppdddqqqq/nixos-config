@@ -30,6 +30,7 @@
     ../modules/locale.nix
     ../modules/nixvim.nix
     ../modules/software.nix
+    ../modules/fail2ban.nix
 
     ../overlays/unstable.nix
 
