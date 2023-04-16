@@ -71,15 +71,15 @@ in
 
   # power mgmt
   powerManagement.enable = true;
-  #powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.cpuFreqGovernor = "powersave";
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
-  services.tlp.settings = {
-    CPU_SCALING_MIN_FREQ_ON_AC=800000;
-    CPU_SCALING_MIN_FREQ_ON_BAT=600000;
-    CPU_MIN_PERF_ON_AC=3;
-    CPU_MIN_PERF_ON_BAT=3;
-  };
+  # services.tlp.settings = {
+  #   CPU_SCALING_MIN_FREQ_ON_AC=800000;
+  #   CPU_SCALING_MIN_FREQ_ON_BAT=600000;
+  #   CPU_MIN_PERF_ON_AC=3;
+  #   CPU_MIN_PERF_ON_BAT=3;
+  # };
   services.power-profiles-daemon.enable = false;
   services.thermald.enable = true;
 
@@ -103,12 +103,26 @@ in
   #    };
   #  };
 
-  # virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.x11 = true;
-  users.extraGroups.vboxusers.members = ["lorax"];
+  # boot.kernelPackages = pkgs.linuxPackages.extend (self: super: {
+  #   virtualbox = super.virtualbox.override {
+  #     inherit (self) kernel;
+  #   };
+  #   virtualboxGuestAdditions = super.virtualboxGuestAdditions.override {
+  #     inherit (self) kernel;
+  #   };
+  # });
+  ## also, the user program override should be introduced 
+  ## directly at packageOverrides
+  # nixpkgs.config.packageOverrides = ps: {
+  #   virtualbox = pkgs.unstable.virtualbox;
+  #   virtualboxExtpack = pkgs.unstable.virtualboxExtpack;
+  #   # linuxPackages = pkgs.unstable.linuxPackages;
+  # };
+
+  virtualisation.vmware.host.enable = true;
+
+  # virtualisation.libvirtd.enable = true;
+  # environment.systemPackages = with pkgs; [ virt-manager ];
 
   environment.variables = {
     MOZ_USE_XINPUT2 = "1";
