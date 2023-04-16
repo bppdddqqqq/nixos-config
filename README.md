@@ -10,3 +10,12 @@ Code is licensed under `CC BY-SA 4.0`, feel free to use it as you like.
 - mostly clean code
 - using latest trends in Nix(TM)
 - in perpetual development!
+
+# Todo
+
+- [ ] - https://github.com/nix-community/impermanence
+- [ ] - https://github.com/nix-community/nixos-generators
+- [ ] - https://github.com/rapenne-s/bento/
+- [ ] - https://gitlab.com/simple-nixos-mailserver/nixos-mailserver
+- [ ] - https://github.com/hercules-ci/flake-parts
+- [ ] - 
