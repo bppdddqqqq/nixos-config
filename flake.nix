@@ -5,6 +5,9 @@
     nixpkgs,
     nixos-generators,
     home-manager,
+    nixvim,
+    nixpkgs-unstable,
+    nix-vscode-extensions,
     ...
   } @ attrs: let
     username = "lorax";
@@ -54,7 +57,7 @@
         ./modules/steam.nix
       ];
     };
-    nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem rec {  
       system = "x86_64-linux";
       specialArgs = attrs // {
         inherit system;
@@ -77,7 +80,7 @@
   };
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
-  inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs";
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   inputs.nixlib.url = "github:nix-community/nixpkgs.lib";
 
@@ -101,7 +104,7 @@
   };
   inputs.nixvim = {
     url = "github:pta2002/nixvim";
-    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs.follows = "nixpkgs-unstable";
     inputs.beautysh.follows = "beautysh";
     inputs.flake-utils.follows = "flake-utils";
     inputs.pre-commit-hooks.follows = "precommit";
