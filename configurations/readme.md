@@ -35,6 +35,11 @@ Soon(TM):
 * Tijuana - universal VirtualBox image
   * contains all the essential things for deploying Dellrax as a portable VM
   * won't use Gnome, instead it will use LXDE or other DWM
+* Ryuichi - secret management/update server
+  * contains Bento or other known secret manager
+  * collocated somewhere secretly (TM)
+  * contains BitwardenRS server
+  * either deployable as a container service (for Amnesiac) or as a separate NixOS image (for cloud)
 
 Former:
 * Lorax - prototype deployment of NixOS, it was written with old NixOS deployment specification (non-Flake), code is lost
