@@ -24,6 +24,7 @@ let
       rmarkdown
       xfun
       yaml
+      fBasics
     ];
   };
 in
@@ -86,6 +87,7 @@ in
     # social
     tdesktop
     signal-desktop
+    unstable.ferdium
 
     # video Edit
     unstable.libsForQt5.kdenlive
@@ -99,7 +101,7 @@ in
       bungcip.better-toml
       ms-python.python
       rubymaniac.vscode-direnv
-      denoland.vscode-deno
+      # denoland.vscode-deno
       angular.ng-template
       johnpapa.angular2
       bradlc.vscode-tailwindcss
