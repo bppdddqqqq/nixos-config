@@ -16,7 +16,7 @@
     {
       users.users."${username}" = {
         isNormalUser = true;
-        extraGroups = [ "lxd" "docker" "networkmanager" "wheel" "editors" ];
+        extraGroups = [ "lxd" "docker" "networkmanager" "wheel" "editors" "libvirtd"  ];
       };
 
       home-manager.useGlobalPkgs = true;
