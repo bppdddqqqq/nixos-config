@@ -15,6 +15,7 @@
   # default shell is FISH
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [fish];
+  programs.fish.enable = true;
 
   # enable documentation
   documentation.dev.enable = true;
