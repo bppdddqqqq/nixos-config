@@ -35,6 +35,6 @@
 
     mediainfo
 
-    deno
+    # deno
   ];
 }

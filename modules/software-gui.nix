@@ -27,5 +27,9 @@
 
     #python3Full
     python3Full
+
+    #rdp
+    freerdp
+    openvpn
   ];
 }
