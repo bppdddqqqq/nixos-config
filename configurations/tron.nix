@@ -62,6 +62,8 @@ in {
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
 
+  services.vaultwarden.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.useDHCP = false;
