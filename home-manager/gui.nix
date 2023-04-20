@@ -101,7 +101,7 @@ in
       bungcip.better-toml
       ms-python.python
       rubymaniac.vscode-direnv
-      # denoland.vscode-deno
+      denoland.vscode-deno
       angular.ng-template
       johnpapa.angular2
       bradlc.vscode-tailwindcss

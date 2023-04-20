@@ -22,7 +22,7 @@ let
         servers = {
           clangd.enable = true;
           eslint.enable = true;
-          # denols.enable = true;
+          denols.enable = true;
           html.enable = true;
           jsonls.enable = true;
           pylsp = {
