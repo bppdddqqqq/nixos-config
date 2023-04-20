@@ -31,5 +31,6 @@
     #rdp
     freerdp
     openvpn
+    cool-retro-term
   ];
 }
