@@ -19,6 +19,7 @@ let
       htmltools
       jsonlite
       knitr
+      BSDA
       markdown
       mime
       rmarkdown
