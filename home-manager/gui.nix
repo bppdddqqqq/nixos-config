@@ -20,7 +20,9 @@ let
       jsonlite
       knitr
       BSDA
+      exactci
       markdown
+      Rlab
       mime
       rmarkdown
       xfun
@@ -41,22 +43,25 @@ in
   home.packages = with pkgs; [
     firefox
     thunderbird
-    xournalpp
+    # xournalpp
     calibre
     vlc
     libreoffice-qt
     discord
-    betterdiscordctl
+    # betterdiscordctl
     anki
-    popcorntime
+    # popcorntime
     kodi
     adl
     freecad
     rstudio
     pandoc
-    hashcat
-    hashcat-utils
+    # hashcat
+    # hashcat-utils
     google-fonts
+    ffmpeg
+    # jetbrains.idea-community
+    # gradle
 
     zeal
     postman
@@ -78,6 +83,7 @@ in
     gimp
     inkscape
     unstable.obsidian
+    mplayer
 
     # texstudio
     texstudio
@@ -88,7 +94,7 @@ in
     # social
     tdesktop
     signal-desktop
-    unstable.ferdium
+    # unstable.ferdium
 
     # video Edit
     unstable.libsForQt5.kdenlive
