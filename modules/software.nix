@@ -32,6 +32,9 @@
     wget
     tldr
     yq-go
+    vagrant
+
+    usbutils
 
     mediainfo
 
