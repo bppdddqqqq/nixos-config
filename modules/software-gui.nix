@@ -12,12 +12,12 @@
     # tor
     tor-browser-bundle-bin
 
-    # wine
-    # wine-staging (version with experimental features)
-    wineWowPackages.staging
+    # # wine
+    # # wine-staging (version with experimental features)
+    # wineWowPackages.staging
 
-    # winetricks (all versions)
-    winetricks
+    # # winetricks (all versions)
+    # winetricks
 
     #appimage
     appimage-run
