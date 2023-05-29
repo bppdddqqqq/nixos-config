@@ -108,6 +108,43 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.unstable.vscodium;
+    enableUpdateCheck = false;
+    userSettings = {
+      "[json]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+      };
+      "[javascript]" = {
+          "editor.defaultFormatter" = "vscode.typescript-language-features";
+      };
+      "[typescriptreact]" = {
+          "editor.defaultFormatter" = "vscode.typescript-language-features";
+      };
+      "explorer.confirmDragAndDrop" = false;
+      "[css]" = {
+          "editor.defaultFormatter" = "vscode.css-language-features";
+      };
+      "[jsonc]" = {
+          "editor.defaultFormatter" = "vscode.json-language-features";
+      };
+      "git.confirmSync" = false;
+      "debug.onTaskErrors" = "showErrors";
+      "[typescript]" = {
+          "editor.defaultFormatter" = "vscode.typescript-language-features";
+      };
+      "emmet.triggerExpansionOnTab" = true;
+      "redhat.telemetry.enabled" = false;
+      "explorer.confirmDelete" = false;
+      "window.zoomLevel" = -1;
+      "window.titleBarStyle" = "custom" ;
+      "window.commandCenter" = true ;
+      "window.autoDetectColorScheme" = true ;
+      "workbench.preferredDarkColorTheme" = "Adwaita Dark" ;
+      "workbench.preferredLightColorTheme" = "Adwaita Light" ;
+      "workbench.productIconTheme" = "adwaita" ;
+      "editor.renderLineHighlight" = "none" ;
+      "workbench.iconTheme" = null ;
+      "workbench.tree.indent" = 12 ;
+    };
     extensions = with pkgs; with vscode-marketplace; [
       serayuzgur.crates
       bungcip.better-toml
@@ -145,7 +182,9 @@ in
       eamodio.gitlens
       #     ms-vscode.cpptools-extension-pack
       austin.code-gnu-global
-    ] ++ [ unstable.vscode-extensions.matklad.rust-analyzer ];
+    ] ++ [ unstable.vscode-extensions.matklad.rust-analyzer
+    ] ++ [ pkgs.open-vsx.piousdeer.adwaita-theme ];
+
   };
 
   # You can update Home Manager without changing this value. See
