@@ -6,6 +6,7 @@
     nixos-generators,
     home-manager,
     nixvim,
+    nur,
     nixpkgs-unstable,
     nix-vscode-extensions,
     ...
@@ -102,6 +103,7 @@
     inputs.utils.follows = "flake-utils";
     inputs.poetry2nix.follows = "poetry2nix";
   };
+  inputs.nur.url = github:nix-community/NUR;
   inputs.nixvim = {
     url = "github:pta2002/nixvim";
     inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -109,7 +111,9 @@
     inputs.flake-utils.follows = "flake-utils";
     inputs.pre-commit-hooks.follows = "precommit";
   };
-  
+  inputs = {
+    firefox-gnome-theme = { url = "github:rafaelmardojai/firefox-gnome-theme"; flake = false; };
+  };
   inputs.home-manager = {
     url = "github:nix-community/home-manager/release-22.11";
     inputs.nixpkgs.follows = "nixpkgs";
