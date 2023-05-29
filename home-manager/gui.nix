@@ -86,6 +86,10 @@ in
     # editors
     darktable
     gimp
+    rawtherapee
+    gmic
+    gmic-qt
+    
     inkscape
     unstable.obsidian
     mplayer
