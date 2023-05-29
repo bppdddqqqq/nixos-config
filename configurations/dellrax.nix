@@ -23,6 +23,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.extraModprobeConfig = ''
 
 # compiles linux with crashdump kernel, enable if things appear sus
 #  boot.crashDump.enable = true;
@@ -74,6 +75,10 @@ in
   powerManagement.cpuFreqGovernor = "powersave";
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
+  services.tlp.settings = {
+    USB_AUTOSUSPEND=0;
+    RUNTIME_PM_BLACKLIST="06:00.3 06:00.4";
+  };
   # services.tlp.settings = {
   #   CPU_SCALING_MIN_FREQ_ON_AC=800000;
   #   CPU_SCALING_MIN_FREQ_ON_BAT=600000;
