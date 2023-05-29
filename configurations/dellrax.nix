@@ -24,6 +24,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.extraModprobeConfig = ''
+    options usbcore use_both_schemes=y
+  '';
 
 # compiles linux with crashdump kernel, enable if things appear sus
 #  boot.crashDump.enable = true;
