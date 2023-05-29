@@ -157,8 +157,18 @@ in
   programs.home-manager.enable = true;
 
   #gtk stuff
+  gtk.enable = true;
   gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
   gtk.iconTheme.name = "Adwaita";
+  gtk.theme.package = pkgs.gnome.gnome-themes-extra;
+  gtk.theme.name = "Adwaita";
+  qt.enable = true;
+  qt.platformTheme = "gnome";
+  qt.style.package = pkgs.adwaita-qt;
+  qt.style.name = "adwaita";
+  services.dunst.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
+  services.dunst.iconTheme.name = "Adwaita";
+
   xdg = {
     enable = true;
     mimeApps = {
