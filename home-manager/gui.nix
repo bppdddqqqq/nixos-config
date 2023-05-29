@@ -2,6 +2,7 @@
 , pkgs
 , lib
 , username
+, firefox-gnome-theme
 , ...
 }@attrs:
 let
@@ -46,7 +47,6 @@ in
   ];
 
   home.packages = with pkgs; [
-    firefox
     thunderbird
     # xournalpp
     calibre
@@ -159,4 +159,102 @@ in
   #gtk stuff
   gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
   gtk.iconTheme.name = "Adwaita";
+  programs.firefox.enable = true;
+  programs.firefox.package = pkgs.firefox.override {
+    # See nixpkgs' firefox/wrapper.nix to check which options you can use
+    cfg = {
+      # Gnome shell native connector
+      enableGnomeExtensions = true;
+      # Tridactyl native connector
+      enableTridactylNative = true;
+    };
+  };
+
+  home.file.".mozilla/firefox/global/chrome/firefox-gnome-theme".source = firefox-gnome-theme;
+  programs.firefox.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    ublock-origin
+    privacy-badger
+    i-dont-care-about-cookies
+    react-devtools
+    facebook-container
+    reduxdevtools
+    vue-js-devtools
+    angular-devtools
+    unpaywall
+    decentraleyes
+    enhancer-for-youtube
+    sponsorblock
+    youchoose-ai
+  ];
+  programs.firefox.profiles.old = {
+    name = "Old";
+    id = 1;
+    path = "old.default";
+  };
+  programs.firefox.profiles.global = {
+    settings = {
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
+      "browser.uidensity" = 0; # Set UI density to normal
+      "svg.context-properties.content.enabled" = true; # Enable SVG context-propertes
+      "browser.theme.dark-private-windows" = false; # Disable private window dark theme
+    };
+    userChrome = ''
+      @import "firefox-gnome-theme/userChrome.css";
+    '';
+    userContent = ''
+      @import "firefox-gnome-theme/userContent.css";
+    '';
+    name = "Default";
+    isDefault = true;
+    bookmarks = [
+      {
+        name = "wikipedia";
+        keyword = "wiki";
+        url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+      }
+      {
+        name = "kernel.org";
+        url = "https://www.kernel.org";
+      }
+      {
+        name = "Nix sites";
+        toolbar = true;
+        bookmarks = [
+          {
+            name = "homepage";
+            url = "https://nixos.org/";
+          }
+          {
+            name = "wiki";
+            url = "https://nixos.wiki/";
+          }
+        ];
+      }
+    ];
+    search.default = "Google";
+    search.engines = {
+      "Nix Packages" = {
+        urls = [{
+          template = "https://search.nixos.org/packages";
+          params = [
+            { name = "type"; value = "packages"; }
+            { name = "query"; value = "{searchTerms}"; }
+          ];
+        }];
+
+        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        definedAliases = [ "@np" ];
+      };
+
+      "NixOS Wiki" = {
+        urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+        iconUpdateURL = "https://nixos.wiki/favicon.png";
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = [ "@nw" ];
+      };
+
+      "Bing".metaData.hidden = true;
+      "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+    };
+  };
 }
