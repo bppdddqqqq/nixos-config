@@ -125,6 +125,10 @@ in
   # };
 
   virtualisation.vmware.host.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "lorax" ];
+
 
   # virtualisation.libvirtd.enable = true;
   # environment.systemPackages = with pkgs; [ virt-manager ];
