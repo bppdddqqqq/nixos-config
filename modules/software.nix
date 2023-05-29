@@ -35,6 +35,7 @@
     vagrant
 
     usbutils
+    jmtpfs
 
     mediainfo
 
