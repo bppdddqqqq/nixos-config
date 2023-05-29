@@ -17,7 +17,7 @@
     libinput.enable = true;
   };
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [ gnome.adwaita-icon-theme gnomeExtensions.appindicator ];
+  environment.systemPackages = with pkgs; [ gnome.adwaita-icon-theme gnomeExtensions.appindicator gnome.gnome-settings-daemon ];
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   environment.gnome.excludePackages = (with pkgs; [
