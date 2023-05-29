@@ -1,4 +1,4 @@
-{ config, lib, home-manager, username, ... }@attrs:
+{ config, lib, home-manager, username, nur, firefox-gnome-theme, ... }@attrs:
 {
   imports = [
     ../modules/dnscrypt.nix
@@ -11,6 +11,7 @@
 
     ../overlays/vscode.nix
     ../overlays/unstable.nix
+    ../overlays/nur.nix
 
     home-manager.nixosModules.home-manager
     {
@@ -32,6 +33,7 @@
           inherit pkgs;
           inherit lib;
           inherit username;
+          inherit firefox-gnome-theme;
         };
     }
   ];
