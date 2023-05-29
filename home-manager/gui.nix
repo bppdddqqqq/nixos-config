@@ -22,6 +22,11 @@ let
       BSDA
       exactci
       markdown
+      ggpubr
+      moonBook
+      ggiraph
+      ggiraphExtra
+      plyr
       Rlab
       mime
       rmarkdown
