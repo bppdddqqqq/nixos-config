@@ -8,6 +8,7 @@
     ../modules/nixvim.nix
     ../modules/software.nix
     ../modules/software-gui.nix
+    ../modules/xdg.nix
 
     ../overlays/vscode.nix
     ../overlays/unstable.nix
