@@ -304,6 +304,15 @@ in
     enhancer-for-youtube
     sponsorblock
     youchoose-ai
+    flagfox
+    forget_me_not
+    ghostery
+    leechblock-ng
+    link-cleaner
+    link-gopher
+    no-pdf-download
+    offline-qr-code-generator
+    private-relay
   ];
   programs.firefox.profiles.old = {
     name = "Old";
