@@ -8,8 +8,6 @@
   environment.systemPackages = with pkgs; [
     # diagnostic tools
     nvme-cli
-    smartmontools
-    
     ncdu_2
     smartmontools
     lm_sensors
