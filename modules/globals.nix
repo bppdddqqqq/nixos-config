@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   # nix settings
   nixpkgs.config.allowUnfree = true;
@@ -10,11 +9,11 @@
   # dedupe
   nix.settings.auto-optimise-store = true;
   # nix flakes activation
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # default shell is FISH
   users.defaultUserShell = pkgs.fish;
-  environment.shells = with pkgs; [fish];
+  environment.shells = with pkgs; [ fish ];
   programs.fish.enable = true;
 
   # enable documentation
@@ -22,7 +21,7 @@
 
   # fonts!
   fonts.fonts = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     #    google-fonts
   ];
 

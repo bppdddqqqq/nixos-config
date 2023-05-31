@@ -182,7 +182,8 @@ let
     " Resume latest coc list.
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>          
   '';
-in {
+in
+{
   environment.systemPackages = [
     clang_14
     clang-tools_14

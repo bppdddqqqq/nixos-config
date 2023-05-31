@@ -7,4 +7,5 @@ let
       config = { allowUnfree = true; };
     };
   };
-in { nixpkgs.overlays = [ overlayA ]; }
+in
+{ nixpkgs.overlays = [ overlayA ]; }

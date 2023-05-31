@@ -48,8 +48,8 @@ let
       telescope = {
         enable = true;
         extensions = {
-            frecency.enable = true;
-            fzf-native.enable = true;
+          frecency.enable = true;
+          fzf-native.enable = true;
         };
       };
       nvim-cmp.enable = true;

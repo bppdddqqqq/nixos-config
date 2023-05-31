@@ -1,79 +1,81 @@
 {
-  outputs = {
-    self,
-    nixos-hardware,
-    nixpkgs,
-    nixos-generators,
-    home-manager,
-    nixvim,
-    nur,
-    nixpkgs-unstable,
-    nix-vscode-extensions,
-    ...
-  } @ attrs: let
-    username = "lorax";
-  in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-    nixosConfigurations.amnesix = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = attrs // {
-        inherit system;
-        inherit username;
-      };
-      modules = [
-        ./presets/server.nix
-        ./configurations/amnesix.nix
+  outputs =
+    { self
+    , nixos-hardware
+    , nixpkgs
+    , nixos-generators
+    , home-manager
+    , nixvim
+    , nur
+    , nixpkgs-unstable
+    , nix-vscode-extensions
+    , ...
+    } @ attrs:
+    let
+      username = "lorax";
+    in
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      nixosConfigurations.amnesix = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = attrs // {
+          inherit system;
+          inherit username;
+        };
+        modules = [
+          ./presets/server.nix
+          ./configurations/amnesix.nix
 
-        ./modules/cpp.nix
-        ./modules/docker.nix
-      ];
-    };
-    nixosConfigurations.geryones = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = attrs // {
-        inherit system;
-        inherit username;
+          ./modules/cpp.nix
+          ./modules/docker.nix
+        ];
       };
-      modules = [
-        ./presets/gui.nix
-        ./configurations/geryones.nix
+      nixosConfigurations.geryones = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = attrs // {
+          inherit system;
+          inherit username;
+        };
+        modules = [
+          ./presets/gui.nix
+          ./configurations/geryones.nix
 
-        ./modules/cpp.nix
-        ./modules/docker.nix
-      ];
-    };
-    nixosConfigurations.tron = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = attrs // {
-        inherit system;
-        inherit username;
+          ./modules/cpp.nix
+          ./modules/docker.nix
+        ];
       };
-      modules = [
-        ./presets/gui.nix
-        ./configurations/tron.nix
+      nixosConfigurations.tron = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = attrs // {
+          inherit system;
+          inherit username;
+        };
+        modules = [
+          ./presets/gui.nix
+          ./configurations/tron.nix
 
-        ./modules/cpp.nix
-        ./modules/docker.nix
-        ./modules/printing.nix
-        ./modules/steam.nix
-      ];
-    };
-    nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem rec {  
-      system = "x86_64-linux";
-      specialArgs = attrs // {
-        inherit system;
-        inherit username;
+          ./modules/cpp.nix
+          ./modules/docker.nix
+          ./modules/printing.nix
+          ./modules/steam.nix
+        ];
       };
-      modules = [
-        ./presets/gui.nix
-        ./configurations/dellrax.nix
+      nixosConfigurations.dellrax = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = attrs // {
+          inherit system;
+          inherit username;
+        };
+        modules = [
+          ./presets/gui.nix
+          ./configurations/dellrax.nix
 
-        ./modules/cpp.nix
-        ./modules/docker.nix
-        nixos-hardware.nixosModules.dell-xps-13-9370
-      ];
+          ./modules/cpp.nix
+          ./modules/docker.nix
+          nixos-hardware.nixosModules.dell-xps-13-9370
+        ];
+      };
     };
-  };
 
   inputs.flake-compat = {
     url = "github:edolstra/flake-compat";

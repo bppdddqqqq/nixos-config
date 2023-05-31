@@ -1,10 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 {
   hardware.opengl = {
@@ -25,7 +24,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
@@ -35,7 +34,7 @@
   networking.useDHCP = false;
   networking.wireless.enable = false;
 
-  imports = [./geryones-hw.nix];
+  imports = [ ./geryones-hw.nix ];
 
   console = {
     font = "Lat2-Terminus16";
@@ -46,5 +45,5 @@
   virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.x11 = true;
-  users.extraGroups.vboxusers.members = ["lorax"];
+  users.extraGroups.vboxusers.members = [ "lorax" ];
 }

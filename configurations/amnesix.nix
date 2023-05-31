@@ -5,16 +5,16 @@
 { config, pkgs, ... }:
 {
   imports = [
-      ./amnesix-hw.nix
+    ./amnesix-hw.nix
   ];
 
   environment.systemPackages = with pkgs; [
-     unstable.papermc
+    unstable.papermc
 
-     # admin
-     byobu
-     
-     lynx
+    # admin
+    byobu
+
+    lynx
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -40,7 +40,7 @@
   };
 
   # Enable web server
-  services.nginx = { 
+  services.nginx = {
     enable = true;
 
     virtualHosts."jasanova.chickenkiller.com" = {

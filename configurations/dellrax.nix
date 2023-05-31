@@ -1,10 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 let
   fanConfig = builtins.readFile ./dellrax.fan;
@@ -27,8 +26,8 @@ in
     options usbcore use_both_schemes=y
   '';
 
-# compiles linux with crashdump kernel, enable if things appear sus
-#  boot.crashDump.enable = true;
+  # compiles linux with crashdump kernel, enable if things appear sus
+  #  boot.crashDump.enable = true;
 
   boot.kernelParams = [
     "pcie.aspm=force"
@@ -63,8 +62,8 @@ in
 
   # Open ports in the firewall.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
 
   #x11
   services.xserver = {
@@ -78,8 +77,8 @@ in
   powerManagement.powertop.enable = true;
   services.tlp.enable = true;
   services.tlp.settings = {
-    USB_AUTOSUSPEND=0;
-    RUNTIME_PM_BLACKLIST="06:00.3 06:00.4";
+    USB_AUTOSUSPEND = 0;
+    RUNTIME_PM_BLACKLIST = "06:00.3 06:00.4";
   };
   # services.tlp.settings = {
   #   CPU_SCALING_MIN_FREQ_ON_AC=800000;

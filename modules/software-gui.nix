@@ -1,14 +1,13 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #nomacs image viewer
     nomacs
-    
+
     # tor
     tor-browser-bundle-bin
 

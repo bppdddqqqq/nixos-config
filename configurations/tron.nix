@@ -1,11 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
@@ -13,12 +13,13 @@
     export __VK_LAYER_NV_optimus=NVIDIA_only
     exec "$@"
   '';
-in {
+in
+{
   networking = {
     hostName = "tron"; # Define your hostname.
   };
 
-  services.xserver.videoDrivers = ["nvidia" "displaylink"];
+  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
   # zephyrus has a Nvidia GTX 1070
   # intel gpu
   hardware.opengl = {
@@ -50,14 +51,14 @@ in {
   ];
 
   systemd.services.nvidia-control-devices = {
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
   };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   services.xserver.wacom.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
@@ -76,7 +77,7 @@ in {
   #virtualisation.virtualbox.guest.x11 = true;
   #users.extraGroups.vboxusers.members = ["lorax"];
 
-  imports = [./tron-hw.nix];
+  imports = [ ./tron-hw.nix ];
 
   console = {
     font = "Lat2-Terminus16";

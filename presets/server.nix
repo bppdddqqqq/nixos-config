@@ -1,6 +1,6 @@
 { config, pkgs, lib, home-manager, username, ... }@attrs:
 {
-  
+
   environment.pathsToLink = [ "/libexec" ];
   environment.systemPackages = with pkgs; [
     bashmount

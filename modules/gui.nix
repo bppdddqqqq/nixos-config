@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   #x11
   services.xserver = {
@@ -26,17 +25,17 @@
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
-  #  gnome-terminal
+    #  gnome-terminal
     gedit # text editor
-  #  epiphany # web browser
+    #  epiphany # web browser
     geary # email reader
-  #  evince # document viewer
+    #  evince # document viewer
     gnome-characters
     totem # video player
-  #  tali # poker game
-  #  iagno # go game
-  #  hitori # sudoku game
-  #  atomix # puzzle game
+    #  tali # poker game
+    #  iagno # go game
+    #  hitori # sudoku game
+    #  atomix # puzzle game
   ]);
 
   # Enable sound with pipewire.

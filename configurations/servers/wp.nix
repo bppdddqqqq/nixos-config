@@ -1,10 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 let
   stageshow = pkgs.stdenv.mkDerivation rec {
@@ -38,7 +37,7 @@ in
 
 
   wordpress
-  services.wordpress.sites."localhost" = {
+    services.wordpress.sites."localhost" = {
     plugins = [
       stageshow
       userRoleEditor
@@ -59,6 +58,6 @@ in
 
   # Open ports in the firewall.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
 }

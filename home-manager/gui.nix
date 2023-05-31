@@ -83,7 +83,7 @@ in
     gmic
     gmic-qt
     digikam
-    
+
     inkscape
     unstable.obsidian
     mplayer
@@ -108,39 +108,39 @@ in
     enableUpdateCheck = false;
     userSettings = {
       "[json]" = {
-          "editor.defaultFormatter" = "vscode.json-language-features";
+        "editor.defaultFormatter" = "vscode.json-language-features";
       };
       "[javascript]" = {
-          "editor.defaultFormatter" = "vscode.typescript-language-features";
+        "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
       "[typescriptreact]" = {
-          "editor.defaultFormatter" = "vscode.typescript-language-features";
+        "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
       "explorer.confirmDragAndDrop" = false;
       "[css]" = {
-          "editor.defaultFormatter" = "vscode.css-language-features";
+        "editor.defaultFormatter" = "vscode.css-language-features";
       };
       "[jsonc]" = {
-          "editor.defaultFormatter" = "vscode.json-language-features";
+        "editor.defaultFormatter" = "vscode.json-language-features";
       };
       "git.confirmSync" = false;
       "debug.onTaskErrors" = "showErrors";
       "[typescript]" = {
-          "editor.defaultFormatter" = "vscode.typescript-language-features";
+        "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
       "emmet.triggerExpansionOnTab" = true;
       "redhat.telemetry.enabled" = false;
       "explorer.confirmDelete" = false;
       "window.zoomLevel" = -1;
-      "window.titleBarStyle" = "custom" ;
-      "window.commandCenter" = true ;
-      "window.autoDetectColorScheme" = true ;
-      "workbench.preferredDarkColorTheme" = "Adwaita Dark" ;
-      "workbench.preferredLightColorTheme" = "Adwaita Light" ;
-      "workbench.productIconTheme" = "adwaita" ;
-      "editor.renderLineHighlight" = "none" ;
-      "workbench.iconTheme" = null ;
-      "workbench.tree.indent" = 12 ;
+      "window.titleBarStyle" = "custom";
+      "window.commandCenter" = true;
+      "window.autoDetectColorScheme" = true;
+      "workbench.preferredDarkColorTheme" = "Adwaita Dark";
+      "workbench.preferredLightColorTheme" = "Adwaita Light";
+      "workbench.productIconTheme" = "adwaita";
+      "editor.renderLineHighlight" = "none";
+      "workbench.iconTheme" = null;
+      "workbench.tree.indent" = 12;
     };
     extensions = with pkgs; with vscode-marketplace; [
       serayuzgur.crates
@@ -179,7 +179,8 @@ in
       eamodio.gitlens
       #     ms-vscode.cpptools-extension-pack
       austin.code-gnu-global
-    ] ++ [ unstable.vscode-extensions.matklad.rust-analyzer
+    ] ++ [
+      unstable.vscode-extensions.matklad.rust-analyzer
     ] ++ [ pkgs.open-vsx.piousdeer.adwaita-theme ];
 
   };
@@ -223,9 +224,9 @@ in
       exec = "firefox -P \"Default\"";
       icon = "firefox";
       comment = "Launch Firefox Global profile";
-      mimeType = [];
+      mimeType = [ ];
       terminal = false;
-      categories = [ "Network" "WebBrowser" ]; 
+      categories = [ "Network" "WebBrowser" ];
     };
     firefox-old = {
       name = "Firefox (Old)";
@@ -233,9 +234,9 @@ in
       exec = "firefox -P \"Old\"";
       icon = "firefox";
       comment = "Launch Firefox Old profile";
-      mimeType = [];
+      mimeType = [ ];
       terminal = false;
-      categories = [ "Network" "WebBrowser" ]; 
+      categories = [ "Network" "WebBrowser" ];
     };
   };
 

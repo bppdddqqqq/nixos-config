@@ -22,7 +22,7 @@
         "image/avif" = "org.nomacs.ImageLounge.desktop";
         "image/bmp" = "org.nomacs.ImageLounge.desktop";
         "image/gif" = "org.nomacs.ImageLounge.desktop";
-        
+
         "video/*" = "vlc.desktop";
         "audio/*" = "mplayer.desktop";
         "application/pdf" = "org.gnome.Evince.desktop";

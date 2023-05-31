@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -11,13 +10,13 @@
     ncdu_2
     smartmontools
     lm_sensors
-    
+
     unrar
     p7zip
     zip
     unzip
     tmux
-    
+
     # code quality stuff for nix
     nixpkgs-fmt
 
