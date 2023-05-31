@@ -48,25 +48,18 @@ in
 
   home.packages = with pkgs; [
     thunderbird
-    # xournalpp
     calibre
     vlc
     libreoffice-qt
     discord
-    # betterdiscordctl
     anki
-    # popcorntime
     kodi
     adl
     freecad
     rstudio
     pandoc
-    # hashcat
-    # hashcat-utils
     google-fonts
     ffmpeg
-    # jetbrains.idea-community
-    # gradle
 
     zeal
     postman
@@ -89,6 +82,7 @@ in
     rawtherapee
     gmic
     gmic-qt
+    digikam
     
     inkscape
     unstable.obsidian
@@ -103,7 +97,6 @@ in
     # social
     tdesktop
     signal-desktop
-    # unstable.ferdium
 
     # video Edit
     unstable.libsForQt5.kdenlive
