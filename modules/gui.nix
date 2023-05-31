@@ -21,7 +21,7 @@
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   environment.gnome.excludePackages = (with pkgs; [
-  #  gnome-photos
+    gnome-photos
     gnome-tour
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
