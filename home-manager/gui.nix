@@ -266,6 +266,29 @@ in
     };
   };
 
+  xdg.desktopEntries = {
+    firefox-global = {
+      name = "Firefox (Global)";
+      genericName = "Web Browser";
+      exec = "firefox -P \"Default\"";
+      icon = "firefox";
+      comment = "Launch Firefox Global profile";
+      mimeType = [];
+      terminal = false;
+      categories = [ "Network" "WebBrowser" ]; 
+    };
+    firefox-old = {
+      name = "Firefox (Old)";
+      genericName = "Web Browser";
+      exec = "firefox -P \"Old\"";
+      icon = "firefox";
+      comment = "Launch Firefox Old profile";
+      mimeType = [];
+      terminal = false;
+      categories = [ "Network" "WebBrowser" ]; 
+    };
+  };
+
   home.file.".mozilla/firefox/global/chrome/firefox-gnome-theme".source = firefox-gnome-theme;
   programs.firefox.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
     ublock-origin
