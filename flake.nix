@@ -82,7 +82,7 @@
     flake = false;
   };
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
   inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs";
   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   inputs.nixlib.url = "github:nix-community/nixpkgs.lib";
@@ -117,9 +117,8 @@
     firefox-gnome-theme = { url = "github:rafaelmardojai/firefox-gnome-theme"; flake = false; };
   };
   inputs.home-manager = {
-    url = "github:nix-community/home-manager/release-22.11";
+    url = "github:nix-community/home-manager/release-23.05";
     inputs.nixpkgs.follows = "nixpkgs";
-    inputs.utils.follows = "flake-utils";
   };
   inputs.nixos-generators = {
     url = "github:nix-community/nixos-generators";
