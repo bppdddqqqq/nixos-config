@@ -16,8 +16,33 @@
     libinput.enable = true;
   };
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [ gnome.adwaita-icon-theme gnomeExtensions.appindicator gnome.gnome-settings-daemon ];
+  environment.systemPackages = with pkgs; [ gnome.adwaita-icon-theme gnomeExtensions.appindicator gnome.gnome-settings-daemon chromium ];
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
+  programs.chromium = {
+    enable = true;
+    extraOpts = {
+      "BrowserSignin" = 0;
+      "SyncDisabled" = true;
+      "PasswordManagerEnabled" = false;
+      "SpellcheckEnabled" = true;
+      "SpellcheckLanguage" = [
+        "en-US"
+      ];
+    };
+    extensions = [
+      "chlffgpmiacpedhhbkiomidkjlcfhogd" # pushbullet
+      "mbniclmhobmnbdlbpiphghaielnnpgdp" # lightshot
+      "gcbommkclmclpchllfjekcdonpmejbdp" # https everywhere▾▾▾
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "fmkadmapgofadopljbjfkapdkoienihi" # react devtools
+      "oddhnidmicpefilikhgeagedibnefkcf" # react context devtool
+      "ldpochfccmkkmhdbclfhpagapcfdljkj" # decentraleyes
+      "lhdoppojpmngadmnindnejefpokejbdd" # axe devtools
+      "lmhkpmbekcpmknklioeibfkpmmfibljd" # redux devtools
+      "hbdkkfheckcdppiaiabobmennhijkknn" # openseo
+    ];
+  };
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
