@@ -241,36 +241,36 @@ in
   };
 
   home.file.".mozilla/firefox/global/chrome/firefox-gnome-theme".source = firefox-gnome-theme;
-  programs.firefox.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-    ublock-origin
-    privacy-badger
-    i-dont-care-about-cookies
-    react-devtools
-    facebook-container
-    reduxdevtools
-    vue-js-devtools
-    angular-devtools
-    unpaywall
-    decentraleyes
-    enhancer-for-youtube
-    sponsorblock
-    youchoose-ai
-    flagfox
-    forget_me_not
-    ghostery
-    leechblock-ng
-    link-cleaner
-    link-gopher
-    no-pdf-download
-    offline-qr-code-generator
-    private-relay
-  ];
   programs.firefox.profiles.old = {
     name = "Old";
     id = 1;
     path = "old.default";
   };
   programs.firefox.profiles.global = {
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      ublock-origin
+      privacy-badger
+      i-dont-care-about-cookies
+      react-devtools
+      facebook-container
+      reduxdevtools
+      vue-js-devtools
+      angular-devtools
+      unpaywall
+      decentraleyes
+      enhancer-for-youtube
+      sponsorblock
+      youchoose-ai
+      flagfox
+      forget_me_not
+      ghostery
+      leechblock-ng
+      link-cleaner
+      link-gopher
+      no-pdf-download
+      offline-qr-code-generator
+      private-relay
+    ];
     settings = {
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
       "browser.uidensity" = 0; # Set UI density to normal
