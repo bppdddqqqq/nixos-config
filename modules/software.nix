@@ -20,6 +20,11 @@
     # code quality stuff for nix
     nixpkgs-fmt
 
+    # pdfs
+    pdfgrep
+    poppler
+    poppler_utils
+
     # python
     python3
     python310Packages.pip
@@ -35,6 +40,7 @@
     jmtpfs
 
     mediainfo
+    imagemagick
 
     deno
   ];
